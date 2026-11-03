@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Github, Linkedin, Instagram, FileText, Sparkles, MapPin, GraduationCap, Compass, Briefcase } from "lucide-react";
+import { Github, Linkedin, Instagram, Youtube, FileText, Sparkles, MapPin, GraduationCap, Compass, Briefcase } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
 
@@ -82,6 +82,19 @@ export function Hero() {
               >
                 <Instagram className="w-4 h-4 text-[#E1306C]" />
                 <span>Instagram</span>
+              </Button>
+            )}
+
+            {profile.youtube && (
+              <Button
+                variant="secondary"
+                size="md"
+                href={profile.youtube}
+                external
+                aria-label="YouTube Channel (opens in new tab)"
+              >
+                <Youtube className="w-4 h-4 text-[#FF0000]" />
+                <span>YouTube</span>
               </Button>
             )}
 

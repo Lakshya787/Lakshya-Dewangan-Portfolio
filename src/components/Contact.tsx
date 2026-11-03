@@ -5,6 +5,7 @@ import {
   Github,
   Linkedin,
   Instagram,
+  Youtube,
   FileText,
   ArrowUp,
   Heart,
@@ -74,6 +75,7 @@ export function Contact() {
   const linkedinUrl = profile.socials?.linkedin || profile.linkedin;
   const githubUrl = profile.socials?.github || profile.github;
   const instagramUrl = profile.socials?.instagram || profile.instagram;
+  const youtubeUrl = profile.socials?.youtube || profile.youtube;
   const resumeUrl = profile.socials?.resume || profile.resume;
 
   return (
@@ -155,6 +157,19 @@ export function Contact() {
               >
                 <Instagram className="w-5 h-5 text-[#E1306C]" aria-hidden="true" />
                 <span>Instagram</span>
+              </Button>
+            )}
+
+            {youtubeUrl && (
+              <Button
+                variant="secondary"
+                size="lg"
+                href={youtubeUrl}
+                external
+                aria-label="Watch Lakshya on YouTube"
+              >
+                <Youtube className="w-5 h-5 text-[#FF0000]" aria-hidden="true" />
+                <span>YouTube</span>
               </Button>
             )}
 
@@ -258,6 +273,18 @@ export function Contact() {
                   aria-label="Instagram Profile"
                 >
                   <Instagram className="w-4 h-4" />
+                </a>
+              )}
+
+              {youtubeUrl && (
+                <a
+                  href={youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-[#FF0000] rounded-[10px] border border-slate-600 transition-colors duration-[180ms] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-accent-warm)] focus-visible:outline-offset-2"
+                  aria-label="YouTube Channel"
+                >
+                  <Youtube className="w-4 h-4" />
                 </a>
               )}
 

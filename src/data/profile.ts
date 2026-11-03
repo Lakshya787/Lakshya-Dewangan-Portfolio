@@ -11,6 +11,7 @@ export interface SocialLinks {
   github: string;
   linkedin: string;
   instagram: string;
+  youtube: string;
   email: string;
   resume: string;
 }
@@ -30,6 +31,7 @@ export interface Profile {
   github: string;
   linkedin: string;
   instagram: string;
+  youtube: string;
   email: string;
   resume: string;
   socials: SocialLinks;
@@ -58,12 +60,14 @@ export const profile: Profile = {
   github: "https://github.com/Lakshya787",
   linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
   instagram: "https://www.instagram.com/lakshyadewangan2024/",
+  youtube: "https://www.youtube.com/@weaselad",
   email: "mailto:lakshyadewangan78@gmail.com",
   resume: "/resume.pdf",
   socials: {
     github: "https://github.com/Lakshya787",
     linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
     instagram: "https://www.instagram.com/lakshyadewangan2024/",
+    youtube: "https://www.youtube.com/@weaselad",
     email: "mailto:lakshyadewangan78@gmail.com",
     resume: "/resume.pdf",
   },

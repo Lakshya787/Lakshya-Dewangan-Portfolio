@@ -9,6 +9,7 @@ export const allNavLinks: NavLinkItem[] = [
   { name: "Projects", href: "/projects" },
   { name: "Certifications", href: "/certifications" },
   { name: "Experience", href: "/experience" },
+  { name: "Contributions", href: "/contributions" },
   { name: "Education", href: "/#education" },
   { name: "Learning", href: "/#learning" },
   { name: "Contact", href: "/#contact" },

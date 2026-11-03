@@ -32,5 +32,23 @@ export interface Certification {
  * ============================================================================
  */
 
-export const certifications: Certification[] = [];
+export const certifications: Certification[] = [
+  {
+    id: "complete-ai-machine-learning-data-science-bootcamp",
+    title: "Complete A.I. & Machine Learning, Data Science Bootcamp",
+    issuer: "Udemy",
+    issueDate: "YYYY",
+    credentialId: "UC-83ec07f6-1ec7-4be3-b8d9-a8f0cac55146",
+    credentialUrl:
+      "https://ude.my/UC-83ec07f6-1ec7-4be3-b8d9-a8f0cac55146",
+    skills: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Data Science",
+    ],
+    description:
+      "Comprehensive bootcamp covering Artificial Intelligence, Machine Learning, and Data Science. Instructors: Andrei Neagoe and Daniel Bourke.",
+    badgeAccent: "violet",
+  },
+];
 

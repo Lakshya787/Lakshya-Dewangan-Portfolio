@@ -55,6 +55,9 @@ export function Navbar() {
     if (href === "/experience") {
       return pathname.startsWith("/experience");
     }
+    if (href === "/contributions") {
+      return pathname.startsWith("/contributions");
+    }
     if (href.startsWith("/#") && pathname === "/") {
       const targetHash = href.replace("/", "");
       return activeSection === targetHash;
