@@ -5,9 +5,9 @@ import { getAllProjects } from "@/lib/projects";
 import { ProjectsGallery } from "@/components/ProjectsGallery";
 
 export const metadata = {
-  title: "Projects — Lakshya",
+  title: "Projects — Lakshya Dewangan",
   description:
-    "All projects by Lakshya — Full-Stack, AI Engineering, ML, and Tools. Filterable by category.",
+    "All projects by Lakshya Dewangan — Full-Stack, AI Engineering, ML, and Tools. Filterable by category.",
 };
 
 /**

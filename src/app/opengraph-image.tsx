@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Lakshya — Full-Stack Developer & AI Engineering Explorer";
+export const alt = "Lakshya Dewangan — Full-Stack Developer & AI Engineering Explorer";
 export const size = {
   width: 1200,
   height: 630,
@@ -102,7 +102,7 @@ export default async function Image() {
               boxShadow: "4px 4px 0px #252b3a",
             }}
           >
-            BTech CSE • IIIT Naya Raipur
+            3rd Year BTech CSE • IIIT Naya Raipur (2024–28)
           </div>
         </div>
 
@@ -111,25 +111,25 @@ export default async function Image() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "20px",
-            maxWidth: "780px",
+            gap: "18px",
+            maxWidth: "850px",
             zIndex: 10,
           }}
         >
           <div
             style={{
-              fontSize: "76px",
+              fontSize: "66px",
               fontWeight: 900,
               color: "#253044", // --dp-color-ink
               letterSpacing: "-0.04em",
-              lineHeight: 1,
+              lineHeight: 1.05,
             }}
           >
-            Lakshya.
+            Lakshya Dewangan.
           </div>
           <div
             style={{
-              fontSize: "30px",
+              fontSize: "28px",
               fontWeight: 600,
               color: "#253044",
               lineHeight: 1.35,

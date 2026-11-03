@@ -2,6 +2,8 @@ export interface Education {
   degree: string;
   field: string;
   institution: string;
+  period: string;
+  currentYear: string;
   display: string;
 }
 
@@ -14,6 +16,8 @@ export interface SocialLinks {
 
 export interface Profile {
   name: string;
+  firstName: string;
+  lastName: string;
   role: string;
   avatar: string;
   image: string;
@@ -30,36 +34,35 @@ export interface Profile {
 }
 
 export const profile: Profile = {
-  name: "Lakshya",
+  name: "Lakshya Dewangan",
+  firstName: "Lakshya",
+  lastName: "Dewangan",
   role: "Full-Stack Developer building for the web and exploring AI.",
   avatar: "/images/lakshya.jpeg",
   image: "/images/lakshya.jpeg",
-  education: "BTech CSE at IIIT Naya Raipur",
+  education: "BTech CSE (3rd Year) at IIIT Naya Raipur (Aug 2024 – Jul 2028)",
   educationDetails: {
     degree: "BTech",
     field: "CSE",
     institution: "IIIT Naya Raipur",
-    display: "BTech CSE at IIIT Naya Raipur",
+    period: "Aug 2024 – Jul 2028",
+    currentYear: "3rd Year",
+    display: "BTech CSE · 3rd Year at IIIT Naya Raipur (Aug 2024 – Jul 2028)",
   },
   location: "India",
   status: "Open to internships",
   positioningStatement:
-    "I'm a Computer Science student and Full-Stack Developer interested in building scalable web applications and exploring AI Engineering. I enjoy turning ideas into functional products, experimenting with new technologies and continuously improving my engineering skills.",
+    "I'm a 3rd-year Computer Science student at IIIT Naya Raipur (2024 – 2028) and Full-Stack Developer interested in building scalable web applications and exploring AI Engineering. I enjoy turning ideas into functional products, experimenting with new technologies and continuously improving my engineering skills.",
   github: "https://github.com/Lakshya787",
-  // LinkedIn profile URL (can be updated here)
   linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
-  // Contact email address
   email: "mailto:lakshyadewangan78@gmail.com",
-  // TODO: Add your resume PDF to public/resume.pdf or set external Google Drive/Cloud link here
   resume: "/resume.pdf",
   socials: {
     github: "https://github.com/Lakshya787",
     linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
     email: "mailto:lakshyadewangan78@gmail.com",
-    // TODO: Add your resume PDF to public/resume.pdf
     resume: "/resume.pdf",
   },
 };
 
 export const githubUsername = "Lakshya787";
-

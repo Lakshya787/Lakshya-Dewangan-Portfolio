@@ -176,7 +176,7 @@ export function Contact() {
                   {profile.name}
                 </span>
                 <span className="font-mono text-xs px-2 py-0.5 rounded-[6px] bg-slate-800 text-[var(--dp-color-accent-fresh)] border border-slate-700">
-                  CSE &bull; IIIT Naya Raipur
+                  3rd Year CSE &bull; IIIT Naya Raipur (2024–28)
                 </span>
               </div>
               <p className="font-reading text-xs text-slate-300 max-w-sm">

@@ -27,9 +27,9 @@ export function Hero() {
           <div className="space-y-3">
             <h1
               id="hero-heading"
-              className="font-display font-black text-[clamp(3.125rem,7.5vw,6.375rem)] text-[var(--dp-color-ink)] leading-[0.92] tracking-[-0.035em] break-words"
+              className="font-display font-black text-[clamp(2.75rem,6.2vw,5.75rem)] text-[var(--dp-color-ink)] leading-[0.95] tracking-[-0.035em] break-words"
             >
-              Lakshya.
+              Lakshya Dewangan.
             </h1>
             <p className="font-display font-extrabold text-xl sm:text-2xl lg:text-[26px] text-[var(--dp-color-accent)] leading-snug tracking-tight">
               {profile.role}
@@ -40,7 +40,7 @@ export function Hero() {
           <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[var(--dp-color-selection)] border-[2px] border-[var(--dp-color-outline)] rounded-[10px] text-xs sm:text-sm font-display font-bold text-[var(--dp-color-ink)] shadow-[2px_2px_0px_var(--dp-color-outline)]">
               <GraduationCap className="w-4 h-4 text-[var(--dp-color-accent)]" />
-              <span>BTech CSE · IIIT Naya Raipur</span>
+              <span>BTech CSE · 3rd Year (2024–2028) · IIIT Naya Raipur</span>
             </div>
 
             <p className="font-reading text-base sm:text-lg text-[var(--dp-color-ink)]/85 leading-[1.65]">
@@ -185,10 +185,10 @@ export function Hero() {
               <span>Education</span>
             </div>
             <div className="font-display font-black text-sm sm:text-base text-[var(--dp-color-ink)] leading-tight">
-              BTech CSE
+              3rd Year BTech CSE
             </div>
             <div className="font-reading text-xs text-[var(--dp-color-ink)]/75">
-              IIIT Naya Raipur
+              IIIT NR (Aug &apos;24 – Jul &apos;28)
             </div>
           </div>
 

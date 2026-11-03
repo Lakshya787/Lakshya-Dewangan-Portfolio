@@ -15,10 +15,10 @@ export const educationList: EducationItem[] = [
     field: "Computer Science and Engineering (CSE)",
     institution: "IIIT Naya Raipur",
     location: "India",
-    period: "Undergraduate",
-    status: "Currently Pursuing",
+    period: "Aug 2024 – Jul 2028",
+    status: "3rd Year Undergraduate",
     description:
-      "Rigorous computer science curriculum emphasizing computing fundamentals, data structures, algorithm design, systems programming, and modern software engineering methodologies.",
+      "Currently in 3rd year (Aug 2024 – Jul 2028). Rigorous computer science curriculum emphasizing computing fundamentals, data structures, algorithm design, systems programming, and modern software engineering methodologies.",
     coursework: [
       "Data Structures & Algorithms",
       "Operating Systems",
@@ -29,4 +29,3 @@ export const educationList: EducationItem[] = [
     ],
   },
 ];
-

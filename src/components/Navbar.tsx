@@ -87,7 +87,7 @@ export function Navbar() {
                 {profile.name}
               </span>
               <span className="font-reading text-[11px] text-[var(--dp-color-ink)]/70 font-semibold tracking-tight">
-                Developer
+                Developer • 3rd Year IIIT NR
               </span>
             </div>
           </Link>
