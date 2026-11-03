@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle2, Circle, BookOpen } from "lucide-react";
 import BookContainer from "./BookContainer";
 import { skillsByCategory, type SkillLevel } from "@/data/skills";
+import TechSymbol from "./TechSymbol";
 
 /* ─── Level metadata ──────────────────────────────────────────────────────── */
 
@@ -58,16 +59,17 @@ function SkillChip({ name, level }: { name: string; level: SkillLevel }) {
   const meta = levelMeta[level];
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[10px] border-[2.5px] ${meta.borderClass} ${meta.bgClass} shadow-[2px_2px_0px_var(--dp-color-outline)] font-display font-bold text-xs ${meta.labelClass}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[10px] border-[2.5px] ${meta.borderClass} ${meta.bgClass} shadow-[2px_2px_0px_var(--dp-color-outline)] font-display font-bold text-xs ${meta.labelClass} hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms]`}
     >
+      <TechSymbol name={name} className="w-3.5 h-3.5 shrink-0" />
+      <span>{name}</span>
       {/* Coloured indicator dot — shape + colour distinguish the level */}
       <span
-        className={`w-2 h-2 shrink-0 rounded-full ${meta.dotClass} border-[1.5px] border-[var(--dp-color-outline)]`}
+        className={`w-1.5 h-1.5 shrink-0 rounded-full ${meta.dotClass} border-[1px] border-[var(--dp-color-outline)] ml-0.5`}
         aria-hidden="true"
       />
-      {name}
       {/* Text label suffix differentiates levels without relying solely on colour */}
-      <span className="font-mono text-[9px] font-extrabold tracking-tight opacity-60 ml-0.5">
+      <span className="font-mono text-[9px] font-extrabold tracking-tight opacity-60">
         {meta.symbol}
       </span>
     </span>

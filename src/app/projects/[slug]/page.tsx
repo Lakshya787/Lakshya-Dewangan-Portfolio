@@ -19,6 +19,7 @@ import {
 import { getAllProjects, getProjectBySlug, type Project, type ProjectDetail } from "@/lib/projects";
 import { pinnedProjects, type PinnedProject } from "@/data/pinned-projects";
 import Button from "@/components/Button";
+import TechSymbol from "@/components/TechSymbol";
 
 /* ─── Static params ──────────────────────────────────────────────────────── */
 
@@ -125,9 +126,10 @@ const SECTIONS: SectionDef[] = [
           {p.techStack.map((t) => (
             <span
               key={t}
-              className="font-mono text-xs font-bold px-3 py-1.5 rounded-[10px] bg-[var(--dp-color-ground)] border-[2px] border-[var(--dp-color-outline)] shadow-[2px_2px_0px_var(--dp-color-outline)] text-[var(--dp-color-ink)]"
+              className="font-mono text-xs font-bold px-3 py-1.5 rounded-[10px] bg-[var(--dp-color-ground)] border-[2px] border-[var(--dp-color-outline)] shadow-[2px_2px_0px_var(--dp-color-outline)] text-[var(--dp-color-ink)] inline-flex items-center gap-2 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms]"
             >
-              {t}
+              <TechSymbol name={t} className="w-4 h-4 shrink-0" />
+              <span>{t}</span>
             </span>
           ))}
         </div>
@@ -436,10 +438,10 @@ export default async function ProjectDetailPage({
                   {project.stars} stars
                 </span>
               )}
-              {langDot && project.language && (
-                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[var(--dp-color-ink)]/65 px-2.5 py-0.5 rounded-[8px] border-[2px] border-[var(--dp-color-outline)] bg-[var(--dp-color-ground)]">
-                  <span className={`w-2.5 h-2.5 rounded-full ${langDot} border-[1.5px] border-[var(--dp-color-outline)]`} aria-hidden="true" />
-                  {project.language}
+              {project.language && (
+                <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[var(--dp-color-ink)]/75 px-2.5 py-0.5 rounded-[8px] border-[2px] border-[var(--dp-color-outline)] bg-[var(--dp-color-ground)] shadow-[1px_1px_0px_var(--dp-color-outline)]">
+                  <TechSymbol name={project.language} className="w-3.5 h-3.5 shrink-0" />
+                  <span>{project.language}</span>
                 </span>
               )}
             </div>

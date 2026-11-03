@@ -2,6 +2,7 @@ import React from "react";
 import { Github, ExternalLink, Star, Tag } from "lucide-react";
 import Button from "@/components/Button";
 import type { Project } from "@/lib/projects";
+import TechSymbol from "@/components/TechSymbol";
 
 /* ─── Category colour map ────────────────────────────────────────────────── */
 
@@ -78,11 +79,10 @@ const languageColors: Record<string, string> = {
 };
 
 function LanguageDot({ lang }: { lang: string }) {
-  const dotColor = languageColors[lang] ?? "bg-[var(--dp-color-rule-muted)]";
   return (
-    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[var(--dp-color-ink)]/70">
-      <span className={`w-2.5 h-2.5 rounded-full shrink-0 border-[1.5px] border-[var(--dp-color-outline)] ${dotColor}`} aria-hidden="true" />
-      {lang}
+    <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold text-[var(--dp-color-ink)]/75">
+      <TechSymbol name={lang} className="w-3.5 h-3.5 shrink-0" />
+      <span>{lang}</span>
     </span>
   );
 }
@@ -169,9 +169,10 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             {project.techStack.slice(0, 6).map((tech) => (
               <span
                 key={tech}
-                className="text-[10px] font-mono px-2 py-0.5 rounded-[6px] bg-[var(--dp-color-ground)] border-[1.5px] border-[var(--dp-color-outline)] text-[var(--dp-color-ink)] font-semibold"
+                className="text-[10px] font-mono px-2 py-0.5 rounded-[6px] bg-[var(--dp-color-ground)] border-[1.5px] border-[var(--dp-color-outline)] text-[var(--dp-color-ink)] font-semibold inline-flex items-center gap-1.5"
               >
-                {tech}
+                <TechSymbol name={tech} className="w-3 h-3 shrink-0" />
+                <span>{tech}</span>
               </span>
             ))}
             {project.techStack.length > 6 && (
