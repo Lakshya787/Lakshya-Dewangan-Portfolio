@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Github, Linkedin, FileText, Sparkles, MapPin, GraduationCap, Compass, Briefcase } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
@@ -84,81 +85,75 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Static assembly of decorative geometric shapes (aria-hidden, no animation) */}
-        <div
-          aria-hidden="true"
-          className="flex-1 w-full max-w-[380px] lg:max-w-[420px] max-[760px]:max-w-[340px] aspect-[4/4.2] relative select-none flex items-center justify-center p-2"
-        >
+        {/* Right Column: Static assembly of decorative geometric shapes framing Lakshya's portrait */}
+        <div className="flex-1 w-full max-w-[380px] lg:max-w-[430px] max-[760px]:max-w-[340px] aspect-[4/4.3] relative select-none flex items-center justify-center p-2">
           {/* Main Backdrop Panel with Layered Shadow */}
-          <div className="w-full h-full relative bg-[var(--dp-color-panel)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] rounded-[var(--dp-radius-corner)] shadow-[6px_6px_0px_var(--dp-color-outline)] overflow-hidden p-6 flex flex-col justify-between">
+          <div className="w-full h-full relative bg-[var(--dp-color-panel)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] rounded-[var(--dp-radius-corner)] shadow-[6px_6px_0px_var(--dp-color-outline)] overflow-hidden p-5 sm:p-6 flex flex-col items-center justify-center">
             {/* Background geometric grid pattern */}
             <div
-              className="absolute inset-0 opacity-[0.07]"
+              aria-hidden="true"
+              className="absolute inset-0 opacity-[0.06]"
               style={{
                 backgroundImage: `radial-gradient(var(--dp-color-outline) 1.5px, transparent 1.5px)`,
                 backgroundSize: "16px 16px",
               }}
             />
 
-            {/* Top row of shapes */}
-            <div className="relative z-10 flex items-start justify-between">
-              {/* Violet Arch */}
-              <div className="w-20 h-28 bg-[var(--dp-color-accent)] border-[3px] border-[var(--dp-color-outline)] rounded-t-[40px] rounded-b-[8px] shadow-[4px_4px_0px_var(--dp-color-outline)] flex items-center justify-center">
-                <div className="w-8 h-12 bg-[var(--dp-color-panel)] border-[2px] border-[var(--dp-color-outline)] rounded-t-[16px] rounded-b-[4px]" />
-              </div>
+            {/* Decorative Geometric Shapes Layer (aria-hidden, no animation) */}
+            {/* Top-Left: Violet Arch */}
+            <div
+              aria-hidden="true"
+              className="absolute top-4 left-4 w-12 h-16 bg-[var(--dp-color-accent)] border-[2.5px] border-[var(--dp-color-outline)] rounded-t-[24px] rounded-b-[6px] shadow-[3px_3px_0px_var(--dp-color-outline)] z-0"
+            />
 
-              {/* Mint Circle */}
-              <div className="w-24 h-24 rounded-full bg-[var(--dp-color-accent-fresh)] border-[3px] border-[var(--dp-color-outline)] shadow-[4px_4px_0px_var(--dp-color-outline)] flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-[var(--dp-color-accent)] border-[2px] border-[var(--dp-color-outline)]" />
-              </div>
+            {/* Top-Right: Mint Circle */}
+            <div
+              aria-hidden="true"
+              className="absolute top-4 right-4 w-14 h-14 rounded-full bg-[var(--dp-color-accent-fresh)] border-[2.5px] border-[var(--dp-color-outline)] shadow-[3px_3px_0px_var(--dp-color-outline)] flex items-center justify-center z-0"
+            >
+              <div className="w-5 h-5 rounded-full bg-[var(--dp-color-accent)] border-[2px] border-[var(--dp-color-outline)]" />
             </div>
 
-            {/* Middle decorative geometric elements */}
-            <div className="relative z-10 flex items-center justify-center gap-3 my-2">
-              {/* Amber Triangle (SVG) */}
-              <div className="w-20 h-20 filter drop-shadow-[4px_4px_0px_var(--dp-color-outline)]">
-                <svg
-                  viewBox="0 0 100 100"
-                  className="w-full h-full overflow-visible"
-                  fill="none"
-                >
-                  <polygon
-                    points="50,10 90,85 10,85"
-                    fill="var(--dp-color-accent-warm)"
-                    stroke="var(--dp-color-outline)"
-                    strokeWidth="7"
-                    strokeLinejoin="round"
-                  />
-                  {/* Inner eye geometric accent */}
-                  <circle
-                    cx="50"
-                    cy="60"
-                    r="10"
-                    fill="var(--dp-color-panel)"
-                    stroke="var(--dp-color-outline)"
-                    strokeWidth="5"
-                  />
-                </svg>
-              </div>
-
-              {/* Pink Block */}
-              <div className="w-24 h-16 bg-[var(--dp-color-accent-secondary)] border-[3px] border-[var(--dp-color-outline)] rounded-[14px] shadow-[4px_4px_0px_var(--dp-color-outline)] flex items-center justify-center">
-                <div className="w-12 h-4 bg-[var(--dp-color-accent-warm)] border-[2px] border-[var(--dp-color-outline)] rounded-full" />
-              </div>
+            {/* Bottom-Left: Amber Triangle SVG */}
+            <div
+              aria-hidden="true"
+              className="absolute bottom-4 left-4 w-14 h-14 filter drop-shadow-[3px_3px_0px_var(--dp-color-outline)] z-0"
+            >
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
+                <polygon
+                  points="50,12 90,88 10,88"
+                  fill="var(--dp-color-accent-warm)"
+                  stroke="var(--dp-color-outline)"
+                  strokeWidth="8"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
 
-            {/* Bottom Row Shapes */}
-            <div className="relative z-10 flex items-end justify-between">
-              {/* Mint Pill with hard offset */}
-              <div className="w-32 h-12 bg-[var(--dp-color-field-soft)] border-[3px] border-[var(--dp-color-outline)] rounded-full shadow-[4px_4px_0px_var(--dp-color-outline)] flex items-center px-3 gap-2">
-                <span className="w-4 h-4 rounded-full bg-[var(--dp-color-accent)] border-[1.5px] border-[var(--dp-color-outline)]" />
-                <span className="w-4 h-4 rounded-full bg-[var(--dp-color-accent-secondary)] border-[1.5px] border-[var(--dp-color-outline)]" />
-                <span className="w-4 h-4 rounded-full bg-[var(--dp-color-accent-warm)] border-[1.5px] border-[var(--dp-color-outline)]" />
-              </div>
+            {/* Bottom-Right: Pink Block */}
+            <div
+              aria-hidden="true"
+              className="absolute bottom-4 right-4 w-14 h-10 bg-[var(--dp-color-accent-secondary)] border-[2.5px] border-[var(--dp-color-outline)] rounded-[10px] shadow-[3px_3px_0px_var(--dp-color-outline)] z-0"
+            />
 
-              {/* Amber Quarter Arch / Half Circle */}
-              <div className="w-16 h-16 bg-[var(--dp-color-accent-warm)] border-[3px] border-[var(--dp-color-outline)] rounded-tl-[32px] rounded-tr-[8px] rounded-br-[8px] rounded-bl-[8px] shadow-[4px_4px_0px_var(--dp-color-outline)] flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-[var(--dp-color-outline)]" />
+            {/* Centerpiece: Lakshya's Framed Portrait */}
+            <div className="relative z-10 w-[205px] sm:w-[235px] aspect-[1/1.12] rounded-[var(--dp-radius-corner)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] shadow-[5px_5px_0px_var(--dp-color-outline)] bg-[var(--dp-color-ground)] overflow-hidden">
+              <Image
+                src={profile.image}
+                alt={`Portrait of ${profile.name}`}
+                fill
+                priority
+                sizes="(max-width: 768px) 240px, 280px"
+                className="object-cover object-top"
+              />
+              {/* Inner subtle bottom tag */}
+              <div className="absolute bottom-2 left-2 right-2 px-2.5 py-1 bg-[var(--dp-color-panel)] border-[2px] border-[var(--dp-color-outline)] rounded-[10px] shadow-[2px_2px_0px_var(--dp-color-outline)] flex items-center justify-between">
+                <span className="font-display font-black text-xs text-[var(--dp-color-ink)]">
+                  {profile.name}
+                </span>
+                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 bg-[var(--dp-color-accent-fresh)] border-[1px] border-[var(--dp-color-outline)] rounded-[5px] text-[var(--dp-color-ink)]">
+                  IIIT NR
+                </span>
               </div>
             </div>
           </div>

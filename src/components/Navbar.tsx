@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Shapes, Menu, X, ArrowUpRight } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
@@ -16,6 +17,7 @@ export const navLinks: NavLinkItem[] = [
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Education", href: "#education" },
   { name: "Learning", href: "#learning" },
   { name: "Contact", href: "#contact" },
 ];
@@ -81,8 +83,15 @@ export function Navbar() {
             onClick={() => handleLinkClick("")}
             className="group flex items-center gap-2.5 text-[var(--dp-color-ink)] rounded-[12px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-4"
           >
-            <div className="w-10 h-10 rounded-[12px] bg-[var(--dp-color-accent)] border-[2.5px] border-[var(--dp-color-outline)] flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_var(--dp-color-outline)] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms]">
-              <Shapes className="w-5 h-5 text-[var(--dp-color-accent-warm)]" />
+            <div className="w-10 h-10 rounded-[12px] overflow-hidden bg-[var(--dp-color-accent)] border-[2.5px] border-[var(--dp-color-outline)] flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_var(--dp-color-outline)] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms] relative">
+              <Image
+                src={profile.avatar}
+                alt={profile.name}
+                width={40}
+                height={40}
+                className="w-full h-full object-cover object-top"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-lg sm:text-xl leading-none tracking-tight">

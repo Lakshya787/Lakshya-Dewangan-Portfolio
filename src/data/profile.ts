@@ -15,6 +15,8 @@ export interface SocialLinks {
 export interface Profile {
   name: string;
   role: string;
+  avatar: string;
+  image: string;
   education: string;
   educationDetails: Education;
   location: string;
@@ -30,6 +32,8 @@ export interface Profile {
 export const profile: Profile = {
   name: "Lakshya",
   role: "Full-Stack Developer building for the web and exploring AI.",
+  avatar: "/images/lakshya.jpeg",
+  image: "/images/lakshya.jpeg",
   education: "BTech CSE at IIIT Naya Raipur",
   educationDetails: {
     degree: "BTech",

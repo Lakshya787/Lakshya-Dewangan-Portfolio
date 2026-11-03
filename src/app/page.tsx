@@ -27,6 +27,8 @@ import { profile } from "@/data/profile";
 import { skillsByCategory } from "@/data/skills";
 import { pinnedProjects } from "@/data/pinned-projects";
 import { learningProfile } from "@/data/learning";
+import { educationList } from "@/data/education";
+import { experienceList } from "@/data/experience";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"projects" | "skills" | "learning" | "tokens">("projects");
@@ -225,36 +227,142 @@ export default function Home() {
 
       {/* Experience Section */}
       <section id="experience" className="scroll-mt-24 flex flex-col gap-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--dp-color-accent)]">
+              Practical Work
+            </span>
+            <h2 className="font-display text-3xl font-extrabold text-[var(--dp-color-ink)] tracking-tight">
+              Experience & Roles
+            </h2>
+            <p className="font-reading text-sm text-[var(--dp-color-ink)]/75">
+              Hands-on engineering projects, open source development, and internship readiness.
+            </p>
+          </div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--dp-color-accent-fresh)] border-[2px] border-[var(--dp-color-outline)] rounded-[12px] shadow-[2px_2px_0px_var(--dp-color-outline)] text-xs font-display font-bold text-[var(--dp-color-ink)] self-start sm:self-auto">
+            <span className="w-2 h-2 rounded-full bg-[var(--dp-color-accent)] animate-pulse" />
+            <span>Seeking Full-Stack / SWE Internships</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {experienceList.map((exp, idx) => (
+            <div
+              key={idx}
+              className="p-6 bg-[var(--dp-color-panel)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] rounded-[var(--dp-radius-corner)] shadow-hard flex flex-col justify-between gap-5 hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-[180ms]"
+            >
+              <div className="space-y-3">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-[var(--dp-color-selection)] border-[1.5px] border-[var(--dp-color-outline)] rounded-[6px] text-[var(--dp-color-accent)]">
+                    {exp.type}
+                  </span>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-[var(--dp-color-accent-warm)] border-[1.5px] border-[var(--dp-color-outline)] rounded-[6px] text-[var(--dp-color-ink)]">
+                    {exp.statusBadge}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-display text-xl sm:text-2xl font-black text-[var(--dp-color-ink)]">
+                    {exp.role}
+                  </h3>
+                  <p className="font-reading text-xs text-[var(--dp-color-ink)]/70 font-semibold pt-0.5">
+                    {exp.organization} • {exp.period}
+                  </p>
+                </div>
+
+                <p className="font-reading text-sm text-[var(--dp-color-ink)]/85 leading-relaxed">
+                  {exp.description}
+                </p>
+
+                <ul className="space-y-1.5 pt-1 pl-0 list-none font-reading text-xs text-[var(--dp-color-ink)]/80">
+                  {exp.highlights.map((h, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--dp-color-accent)] mt-1.5 shrink-0" />
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-3 border-t-[2px] border-[var(--dp-color-rule-muted)]/30 flex flex-wrap gap-1.5">
+                {exp.skillsUsed.map((skill) => (
+                  <span
+                    key={skill}
+                    className="text-[11px] font-mono px-2 py-0.5 rounded-[6px] bg-[var(--dp-color-ground)] border-[1px] border-[var(--dp-color-outline)] text-[var(--dp-color-ink)] font-semibold"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="scroll-mt-24 flex flex-col gap-6">
         <div>
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--dp-color-accent)]">
-            Background
+            Academic Background
           </span>
           <h2 className="font-display text-3xl font-extrabold text-[var(--dp-color-ink)] tracking-tight">
-            Education & Journey
+            Education
           </h2>
           <p className="font-reading text-sm text-[var(--dp-color-ink)]/75">
-            Academic foundation and practical development progression.
+            Formal computer science degree and foundational coursework.
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 bg-[var(--dp-color-panel)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] rounded-[var(--dp-radius-corner)] shadow-hard flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <span className="text-xs font-mono font-bold px-2 py-0.5 bg-[var(--dp-color-accent-warm)] border-[1.5px] border-[var(--dp-color-outline)] rounded-[6px] text-[var(--dp-color-ink)]">
-              Current Degree
-            </span>
-            <h3 className="font-display text-2xl font-black text-[var(--dp-color-ink)]">
-              {profile.education}
-            </h3>
-            <p className="font-reading text-sm text-[var(--dp-color-ink)]/80 max-w-xl">
-              Focusing on Data Structures, Algorithms, Computer Networks, Operating Systems, Database Management Systems, and Modern Software Engineering.
-            </p>
-          </div>
+        {educationList.map((edu, idx) => (
+          <div
+            key={idx}
+            className="p-6 sm:p-8 bg-[var(--dp-color-panel)] border-[length:var(--dp-border-outline-width)] border-[var(--dp-color-outline)] rounded-[var(--dp-radius-corner)] shadow-hard flex flex-col gap-6"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b-[2px] border-[var(--dp-color-rule-muted)]/30 pb-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-[var(--dp-color-accent-warm)] border-[1.5px] border-[var(--dp-color-outline)] rounded-[6px] text-[var(--dp-color-ink)]">
+                    {edu.status}
+                  </span>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-[var(--dp-color-field-soft)] border-[1.5px] border-[var(--dp-color-outline)] rounded-[6px] text-[var(--dp-color-ink)]">
+                    {edu.location}
+                  </span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-black text-[var(--dp-color-ink)] pt-1">
+                  {edu.degree}
+                </h3>
+                <p className="font-reading text-sm sm:text-base text-[var(--dp-color-accent)] font-bold">
+                  {edu.field} • {edu.institution}
+                </p>
+              </div>
 
-          <Button variant="secondary" size="md" href={profile.resume} external>
-            <FileText className="w-4 h-4" />
-            <span>Download Resume</span>
-          </Button>
-        </div>
+              <Button variant="secondary" size="md" href={profile.resume} external>
+                <FileText className="w-4 h-4" />
+                <span>Resume PDF</span>
+              </Button>
+            </div>
+
+            <p className="font-reading text-sm sm:text-base text-[var(--dp-color-ink)]/85 max-w-3xl leading-relaxed">
+              {edu.description}
+            </p>
+
+            <div className="space-y-2.5">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[var(--dp-color-ink)]/70">
+                Core Relevant Coursework
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {edu.coursework.map((course) => (
+                  <span
+                    key={course}
+                    className="text-xs font-display font-bold px-3 py-1 rounded-[10px] bg-[var(--dp-color-ground)] border-[2px] border-[var(--dp-color-outline)] shadow-[2px_2px_0px_var(--dp-color-outline)] text-[var(--dp-color-ink)]"
+                  >
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Learning Section */}
