@@ -80,9 +80,29 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${hostGrotesk.variable} ${instrumentSans.variable} scroll-smooth`}
     >
-      <body className="antialiased min-h-screen bg-[var(--dp-color-ground)] text-[var(--dp-color-ink)]">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="antialiased min-h-screen bg-[var(--dp-color-ground)] text-[var(--dp-color-ink)] transition-colors duration-200">
         <div className="layout-container flex flex-col min-h-screen">
           <Navbar />
           <main id="main-content" className="flex-1 w-full focus:outline-none">

@@ -7,6 +7,7 @@
   --dp-color-panel: #ffffff;
   --dp-color-ink: #253044;
   --dp-color-outline: #252b3a;
+  --dp-color-shadow: #252b3a;
   --dp-color-accent: #6434df;
   --dp-color-accent-secondary: #ff78c5;
   --dp-color-accent-warm: #ffd05b;
@@ -22,6 +23,21 @@
   --dp-border-outline-width: 3px;
   --dp-border-detail-width: 2px;
   --dp-motion-interaction: 180ms;
+}
+
+.dark {
+  --dp-color-ground: #0f1219;
+  --dp-color-panel: #181d28;
+  --dp-color-ink: #f1f3f9;
+  --dp-color-outline: #2b354a;
+  --dp-color-shadow: #000000;
+  --dp-color-accent: #8b5cf6;
+  --dp-color-accent-secondary: #ff78c5;
+  --dp-color-accent-warm: #ffd05b;
+  --dp-color-accent-fresh: #5eead4;
+  --dp-color-field-soft: #142129;
+  --dp-color-selection: #2d244f;
+  --dp-color-rule-muted: #3a4763;
 }
 
 @font-face {
@@ -56,23 +72,23 @@ body {
 
 /* Hard offset shadows only (no blur), no glass */
 .shadow-hard {
-  box-shadow: 4px 4px 0px var(--dp-color-outline);
+  box-shadow: 4px 4px 0px var(--dp-color-shadow, var(--dp-color-outline));
 }
 
 .shadow-hard-sm {
-  box-shadow: 2px 2px 0px var(--dp-color-outline);
+  box-shadow: 2px 2px 0px var(--dp-color-shadow, var(--dp-color-outline));
 }
 
 .shadow-hard-md {
-  box-shadow: 4px 4px 0px var(--dp-color-outline);
+  box-shadow: 4px 4px 0px var(--dp-color-shadow, var(--dp-color-outline));
 }
 
 .shadow-hard-lg {
-  box-shadow: 6px 6px 0px var(--dp-color-outline);
+  box-shadow: 6px 6px 0px var(--dp-color-shadow, var(--dp-color-outline));
 }
 
 .shadow-hard-xl {
-  box-shadow: 8px 8px 0px var(--dp-color-outline);
+  box-shadow: 8px 8px 0px var(--dp-color-shadow, var(--dp-color-outline));
 }
 
 /* Visible focus rings */

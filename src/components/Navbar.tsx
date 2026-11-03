@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Button from "./Button";
+import ThemeToggle from "./ThemeToggle";
 import { profile } from "@/data/profile";
 import { navLinks, type NavLinkItem } from "@/data/navigation";
 
@@ -148,8 +149,9 @@ export function Navbar() {
             })}
           </ul>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:block shrink-0">
+          {/* Desktop Right Actions: ThemeToggle + CTA Button */}
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
+            <ThemeToggle />
             <Button
               variant="warm"
               size="sm"
@@ -161,8 +163,9 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Disclosure Toggle */}
+          {/* Mobile Right Controls: ThemeToggle + Menu Disclosure Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
             <button
               ref={menuButtonRef}
               type="button"
