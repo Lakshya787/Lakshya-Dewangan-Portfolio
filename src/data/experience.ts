@@ -53,7 +53,7 @@ export const internships: Internship[] = [
     description:
       "Agentic AI for Urban Transport Disruption Management",
     highlights: [
-      "Engaged in research on applying Agentic AI to urban transport disruption management.",
+      "Working in research on applying Agentic AI to urban transport disruption management.",
       "Exploring agentic AI approaches for managing and addressing disruptions in urban transportation systems.",
     ],
   },
