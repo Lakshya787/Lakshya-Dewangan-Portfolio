@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Shapes, Menu, X, ArrowUpRight } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
 import { navLinks, type NavLinkItem } from "@/data/navigation";
@@ -12,12 +13,13 @@ export type { NavLinkItem };
 export { navLinks };
 
 export function Navbar() {
+  const pathname = usePathname() || "/";
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
-  // Track hash and scroll position to update aria-current
+  // Track hash and scroll position to update active hash on the home page
   useEffect(() => {
     const handleHashChange = () => {
       setActiveSection(window.location.hash || "");
@@ -43,11 +45,39 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  const handleLinkClick = (href: string) => {
-    setActiveSection(href);
+  const isLinkActive = (href: string) => {
+    if (href === "/projects") {
+      return pathname.startsWith("/projects");
+    }
+    if (href === "/certifications") {
+      return pathname.startsWith("/certifications");
+    }
+    if (href === "/experience") {
+      return pathname.startsWith("/experience");
+    }
+    if (href.startsWith("/#") && pathname === "/") {
+      const targetHash = href.replace("/", "");
+      return activeSection === targetHash;
+    }
+    return false;
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (isOpen) {
       setIsOpen(false);
       menuButtonRef.current?.focus();
+    }
+
+    // If we're already on the home page and clicking a section anchor, scroll smoothly
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `#${targetId}`);
+        setActiveSection(`#${targetId}`);
+      }
     }
   };
 
@@ -69,16 +99,16 @@ export function Navbar() {
           {/* Brand Logo / Identification */}
           <Link
             href="/"
-            onClick={() => handleLinkClick("")}
+            onClick={(e) => handleLinkClick(e, "/")}
             className="group flex items-center gap-2.5 text-[var(--dp-color-ink)] rounded-[12px] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-4"
           >
-            <div className="w-10 h-10 rounded-[12px] overflow-hidden bg-[var(--dp-color-accent)] border-[2.5px] border-[var(--dp-color-outline)] flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_var(--dp-color-outline)] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms] relative">
+            <div className="w-10 h-10 rounded-[12px] overflow-hidden bg-[var(--dp-color-panel)] border-[2.5px] border-[var(--dp-color-outline)] flex items-center justify-center text-white font-bold shadow-[2px_2px_0px_var(--dp-color-outline)] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[3px_3px_0px_var(--dp-color-outline)] transition-all duration-[180ms] relative">
               <Image
-                src={profile.avatar}
+                src="/images/icon.png"
                 alt={profile.name}
                 width={40}
                 height={40}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover"
                 priority
               />
             </div>
@@ -95,21 +125,21 @@ export function Navbar() {
           {/* Desktop Navigation Links */}
           <ul className="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-display font-bold list-none m-0 p-0">
             {navLinks.map((item) => {
-              const isActive = activeSection === item.href;
+              const active = isLinkActive(item.href);
               return (
                 <li key={item.name}>
-                  <a
+                  <Link
                     href={item.href}
-                    onClick={() => handleLinkClick(item.href)}
-                    aria-current={isActive ? "page" : undefined}
+                    onClick={(e) => handleLinkClick(e, item.href)}
+                    aria-current={active ? "page" : undefined}
                     className={`inline-block px-3 py-1.5 rounded-[12px] border-[2px] transition-all duration-[180ms] select-none ${
-                      isActive
+                      active
                         ? "bg-[var(--dp-color-selection)] border-[var(--dp-color-outline)] text-[var(--dp-color-accent)] shadow-[2px_2px_0px_var(--dp-color-outline)]"
                         : "border-transparent text-[var(--dp-color-ink)] hover:border-[var(--dp-color-outline)] hover:bg-[var(--dp-color-field-soft)] hover:shadow-[2px_2px_0px_var(--dp-color-outline)]"
                     } focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-2`}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -120,8 +150,8 @@ export function Navbar() {
             <Button
               variant="warm"
               size="sm"
-              href="#contact"
-              onClick={() => handleLinkClick("#contact")}
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e as any, "/#contact")}
             >
               <span>Connect</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -153,22 +183,22 @@ export function Navbar() {
           >
             <ul className="flex flex-col gap-1.5 list-none m-0 p-0 font-display font-bold text-base">
               {navLinks.map((item) => {
-                const isActive = activeSection === item.href;
+                const active = isLinkActive(item.href);
                 return (
                   <li key={item.name}>
-                    <a
+                    <Link
                       href={item.href}
-                      onClick={() => handleLinkClick(item.href)}
-                      aria-current={isActive ? "page" : undefined}
+                      onClick={(e) => handleLinkClick(e, item.href)}
+                      aria-current={active ? "page" : undefined}
                       className={`flex items-center justify-between px-3.5 py-2.5 rounded-[12px] border-[2px] transition-all duration-[180ms] ${
-                        isActive
+                        active
                           ? "bg-[var(--dp-color-selection)] border-[var(--dp-color-outline)] text-[var(--dp-color-accent)] shadow-[2px_2px_0px_var(--dp-color-outline)]"
                           : "border-transparent text-[var(--dp-color-ink)] hover:bg-[var(--dp-color-ground)] hover:border-[var(--dp-color-outline)]"
                       } focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-2`}
                     >
                       <span>{item.name}</span>
                       <ArrowUpRight className="w-4 h-4 opacity-50" />
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
@@ -179,8 +209,8 @@ export function Navbar() {
                 variant="warm"
                 size="md"
                 fullWidth
-                href="#contact"
-                onClick={() => handleLinkClick("#contact")}
+                href="/#contact"
+                onClick={(e) => handleLinkClick(e as any, "/#contact")}
               >
                 <span>Let&apos;s Connect</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -194,4 +224,3 @@ export function Navbar() {
 }
 
 export default Navbar;
-

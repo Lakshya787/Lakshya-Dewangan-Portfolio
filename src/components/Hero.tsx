@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Github, Linkedin, FileText, Sparkles, MapPin, GraduationCap, Compass, Briefcase } from "lucide-react";
+import { Github, Linkedin, Instagram, FileText, Sparkles, MapPin, GraduationCap, Compass, Briefcase } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
 
@@ -48,7 +48,7 @@ export function Hero() {
             </p>
           </div>
 
-          {/* Actions: GitHub, LinkedIn, Resume (using Button component with rel="noopener noreferrer") */}
+          {/* Actions: GitHub, LinkedIn, Instagram, Resume (using Button component with rel="noopener noreferrer") */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <Button
               variant="primary"
@@ -71,6 +71,19 @@ export function Hero() {
               <Linkedin className="w-4 h-4" />
               <span>LinkedIn</span>
             </Button>
+
+            {profile.instagram && (
+              <Button
+                variant="secondary"
+                size="md"
+                href={profile.instagram}
+                external
+                aria-label="Instagram Profile (opens in new tab)"
+              >
+                <Instagram className="w-4 h-4 text-[#E1306C]" />
+                <span>Instagram</span>
+              </Button>
+            )}
 
             <Button
               variant="warm"

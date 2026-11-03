@@ -21,14 +21,23 @@ export default async function ProjectsPage() {
 
   return (
     <div className="py-8 sm:py-12 flex flex-col gap-10">
-      {/* Back link */}
-      <Link
-        href="/"
-        className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm text-[var(--dp-color-ink)]/70 hover:text-[var(--dp-color-accent)] transition-colors duration-[180ms] focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-4 rounded-[6px] self-start"
-      >
-        <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-        Back to home
-      </Link>
+      {/* Top Navigation Links */}
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 font-display font-extrabold text-sm text-[var(--dp-color-ink)]/70 hover:text-[var(--dp-color-accent)] transition-colors duration-[180ms] focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-outline)] focus-visible:outline-offset-4 rounded-[6px]"
+        >
+          <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+          <span>Back to Home</span>
+        </Link>
+
+        <Link
+          href="/#projects"
+          className="inline-flex items-center gap-1.5 font-display font-extrabold text-xs px-3 py-1.5 rounded-[10px] border-[2px] border-[var(--dp-color-outline)] bg-[var(--dp-color-panel)] shadow-[2px_2px_0px_var(--dp-color-outline)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-[180ms] text-[var(--dp-color-ink)]"
+        >
+          <span>View Featured Projects on Home</span>
+        </Link>
+      </div>
 
       {/* Page header */}
       <div className="flex flex-col gap-3 pb-2 border-b-[3px] border-[var(--dp-color-outline)]">

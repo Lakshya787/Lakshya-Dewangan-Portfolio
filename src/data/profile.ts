@@ -10,6 +10,7 @@ export interface Education {
 export interface SocialLinks {
   github: string;
   linkedin: string;
+  instagram: string;
   email: string;
   resume: string;
 }
@@ -28,6 +29,7 @@ export interface Profile {
   positioningStatement: string;
   github: string;
   linkedin: string;
+  instagram: string;
   email: string;
   resume: string;
   socials: SocialLinks;
@@ -38,7 +40,7 @@ export const profile: Profile = {
   firstName: "Lakshya",
   lastName: "Dewangan",
   role: "Full-Stack Developer building for the web and exploring AI.",
-  avatar: "/images/lakshya.jpeg",
+  avatar: "/images/icon.png",
   image: "/images/lakshya.jpeg",
   education: "BTech CSE (3rd Year) at IIIT Naya Raipur (Aug 2024 – Jul 2028)",
   educationDetails: {
@@ -55,11 +57,13 @@ export const profile: Profile = {
     "I'm a 3rd-year Computer Science student at IIIT Naya Raipur (2024 – 2028) and Full-Stack Developer interested in building scalable web applications and exploring AI Engineering. I enjoy turning ideas into functional products, experimenting with new technologies and continuously improving my engineering skills.",
   github: "https://github.com/Lakshya787",
   linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
+  instagram: "https://www.instagram.com/lakshyadewangan2024/",
   email: "mailto:lakshyadewangan78@gmail.com",
   resume: "/resume.pdf",
   socials: {
     github: "https://github.com/Lakshya787",
     linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
+    instagram: "https://www.instagram.com/lakshyadewangan2024/",
     email: "mailto:lakshyadewangan78@gmail.com",
     resume: "/resume.pdf",
   },

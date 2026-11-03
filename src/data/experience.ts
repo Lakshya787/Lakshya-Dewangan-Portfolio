@@ -42,7 +42,23 @@ export interface Achievement {
  * Populate internships, hackathons, or achievements below.
  */
 
-export const internships: Internship[] = [];
+export const internships: Internship[] = [
+  {
+    id: "remote-research-intern-2026",
+    role: "Remote Research Intern",
+    company: "Université Polytechnique Hauts-de-France",
+    location: "Remote",
+    period: "July 2026 – Present",
+    type: "Internship",
+    description:
+      "Agentic AI for Urban Transport Disruption Management",
+    highlights: [
+      "Engaged in research on applying Agentic AI to urban transport disruption management.",
+      "Exploring agentic AI approaches for managing and addressing disruptions in urban transportation systems.",
+    ],
+  },
+];
+
 export const hackathons: Hackathon[] = [];
 export const achievements: Achievement[] = [];
 

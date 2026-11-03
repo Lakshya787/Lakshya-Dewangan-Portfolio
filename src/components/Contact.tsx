@@ -4,6 +4,7 @@ import {
   Mail,
   Github,
   Linkedin,
+  Instagram,
   FileText,
   ArrowUp,
   Heart,
@@ -72,6 +73,7 @@ export function Contact() {
   const emailUrl = profile.socials?.email || profile.email;
   const linkedinUrl = profile.socials?.linkedin || profile.linkedin;
   const githubUrl = profile.socials?.github || profile.github;
+  const instagramUrl = profile.socials?.instagram || profile.instagram;
   const resumeUrl = profile.socials?.resume || profile.resume;
 
   return (
@@ -143,6 +145,19 @@ export function Contact() {
               <span>GitHub</span>
             </Button>
 
+            {instagramUrl && (
+              <Button
+                variant="secondary"
+                size="lg"
+                href={instagramUrl}
+                external
+                aria-label="Connect with Lakshya on Instagram"
+              >
+                <Instagram className="w-5 h-5 text-[#E1306C]" aria-hidden="true" />
+                <span>Instagram</span>
+              </Button>
+            )}
+
             {resumeUrl && (
               <Button
                 variant="warm"
@@ -187,13 +202,13 @@ export function Contact() {
             {/* Quick Links Navigation */}
             <nav aria-label="Footer quick links" className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="px-2.5 py-1 rounded-[8px] font-display font-bold text-xs text-slate-200 hover:text-[var(--dp-color-accent-warm)] hover:bg-slate-800/80 transition-colors duration-[180ms] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-accent-warm)] focus-visible:outline-offset-2"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <a
                 href="#"
@@ -233,6 +248,18 @@ export function Contact() {
               >
                 <Linkedin className="w-4 h-4" />
               </a>
+
+              {instagramUrl && (
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-[#E1306C] rounded-[10px] border border-slate-600 transition-colors duration-[180ms] focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-[var(--dp-color-accent-warm)] focus-visible:outline-offset-2"
+                  aria-label="Instagram Profile"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+              )}
 
               <a
                 href={emailUrl}
