@@ -1,45 +1,54 @@
-export type ExperienceType = "Seeking Internship" | "Project-Based" | "Open Source";
-
-export interface ExperienceItem {
+export interface Internship {
+  id: string;
   role: string;
-  organization: string;
-  type: ExperienceType;
+  company: string;
+  location?: string;
   period: string;
-  statusBadge: string;
+  type?: "Internship" | "Contract" | "Part-time";
   description: string;
-  highlights: string[];
-  skillsUsed: string[];
+  highlights?: string[];
+  skills?: string[];
+  certificateUrl?: string;
 }
 
-export const experienceList: ExperienceItem[] = [
-  {
-    role: "Full-Stack Web Development",
-    organization: "Independent & Open Source Projects",
-    type: "Project-Based",
-    period: "Ongoing",
-    statusBadge: "Active Building",
-    description:
-      "Designing and developing responsive web applications, design systems, and developer tools with strict type safety and accessible interactions.",
-    highlights: [
-      "Engineered end-to-end web apps leveraging Next.js App Router, TypeScript, and custom Tailwind design systems.",
-      "Built clean API services and database schemas using Node.js, Express, and PostgreSQL.",
-      "Maintained structured version control with Git and GitHub, adhering to clean commit history and documentation.",
-    ],
-    skillsUsed: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Git"],
-  },
-  {
-    role: "Software Engineering Intern Candidate",
-    organization: "Open to Internships / Industry Roles",
-    type: "Seeking Internship",
-    period: "Upcoming / Available",
-    statusBadge: "Open to Offers",
-    description:
-      "Actively preparing for and seeking full-stack, frontend, or software engineering internship opportunities to deliver value in production codebases.",
-    highlights: [
-      "Ready to contribute to agile development sprints, code reviews, and cross-functional feature builds.",
-      "Available for remote or on-site internship positions across India.",
-    ],
-    skillsUsed: ["Full-Stack Engineering", "Agile Collaboration", "Code Quality", "Problem Solving"],
-  },
-];
+export interface Hackathon {
+  id: string;
+  title: string;
+  organizer?: string;
+  project?: string;
+  date: string;
+  award?: string;
+  description: string;
+  skills?: string[];
+  projectUrl?: string;
+}
 
+export interface Achievement {
+  id: string;
+  title: string;
+  issuer?: string;
+  date?: string;
+  description: string;
+  url?: string;
+}
+
+/*
+ * Note on authenticity:
+ * We never fabricate internships, hackathon victories, or work history.
+ * If these arrays are empty, the Experience section renders nothing (and the nav link is dropped),
+ * avoiding placeholder claims.
+ *
+ * To add real experience later:
+ * Populate internships, hackathons, or achievements below.
+ */
+
+export const internships: Internship[] = [];
+export const hackathons: Hackathon[] = [];
+export const achievements: Achievement[] = [];
+
+export const hasExperience =
+  internships.length > 0 || hackathons.length > 0 || achievements.length > 0;
+
+// Legacy fallback type for compatibility
+export type ExperienceItem = Internship;
+export const experienceList: ExperienceItem[] = [];

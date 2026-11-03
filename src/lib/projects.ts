@@ -27,10 +27,10 @@
  * ============================================================================
  */
 
-import { pinnedProjects, type PinnedProject, type ProjectCategory, type ProjectStatus } from "@/data/pinned-projects";
+import { pinnedProjects, type PinnedProject, type ProjectCategory, type ProjectStatus, type ProjectDetail } from "@/data/pinned-projects";
 import { fetchGitHubRepos, type GitHubRepo } from "./github";
 
-export type { ProjectCategory, ProjectStatus };
+export type { ProjectCategory, ProjectStatus, ProjectDetail };
 
 export interface Project {
   slug: string;
@@ -48,6 +48,8 @@ export interface Project {
   topics: string[];
   techStack: string[];
   isPinned: boolean;
+  /** Rich per-project content for the detail page. Only present on pinned projects. */
+  detail?: ProjectDetail;
 }
 
 /**
@@ -119,6 +121,7 @@ function pinnedToProject(pinned: PinnedProject, matchedRepo?: GitHubRepo): Proje
     topics,
     techStack,
     isPinned: true,
+    detail: pinned.detail,
   };
 }
 

@@ -46,19 +46,17 @@ export const profile: Profile = {
   positioningStatement:
     "I'm a Computer Science student and Full-Stack Developer interested in building scalable web applications and exploring AI Engineering. I enjoy turning ideas into functional products, experimenting with new technologies and continuously improving my engineering skills.",
   github: "https://github.com/Lakshya787",
-  // TODO: Replace with your actual LinkedIn profile URL
-  linkedin: "https://linkedin.com/in/TODO_YOUR_LINKEDIN",
-  // TODO: Replace with your actual contact email address
-  email: "mailto:TODO_YOUR_EMAIL@example.com",
-  // TODO: Replace with your actual resume PDF URL or file path
-  resume: "/resume.pdf", // Place resume file in public/ or provide external URL
+  // LinkedIn profile URL (can be updated here)
+  linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
+  // Contact email address
+  email: "mailto:lakshyadewangan78@gmail.com",
+  // TODO: Add your resume PDF to public/resume.pdf or set external Google Drive/Cloud link here
+  resume: "/resume.pdf",
   socials: {
     github: "https://github.com/Lakshya787",
-    // TODO: Replace with your actual LinkedIn profile URL
     linkedin: "https://www.linkedin.com/in/lakshya-dewangan-59bb2b302/",
-    // TODO: Replace with your actual contact email address
     email: "mailto:lakshyadewangan78@gmail.com",
-    // TODO: Replace with your actual resume PDF URL or file path
+    // TODO: Add your resume PDF to public/resume.pdf
     resume: "/resume.pdf",
   },
 };

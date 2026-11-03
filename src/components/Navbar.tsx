@@ -6,21 +6,10 @@ import Image from "next/image";
 import { Shapes, Menu, X, ArrowUpRight } from "lucide-react";
 import Button from "./Button";
 import { profile } from "@/data/profile";
+import { navLinks, type NavLinkItem } from "@/data/navigation";
 
-export interface NavLinkItem {
-  name: string;
-  href: string;
-}
-
-export const navLinks: NavLinkItem[] = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
-  { name: "Learning", href: "#learning" },
-  { name: "Contact", href: "#contact" },
-];
+export type { NavLinkItem };
+export { navLinks };
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +87,7 @@ export function Navbar() {
                 {profile.name}
               </span>
               <span className="font-reading text-[11px] text-[var(--dp-color-ink)]/70 font-semibold tracking-tight">
-                Developer • IIIT NR
+                Developer
               </span>
             </div>
           </Link>

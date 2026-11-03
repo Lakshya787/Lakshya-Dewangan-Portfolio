@@ -9,7 +9,7 @@ import { profile } from "@/data/profile";
 export function Hero() {
   return (
     <section
-      id="about"
+      id="hero"
       aria-labelledby="hero-heading"
       className="scroll-mt-24 pt-4 sm:pt-8 pb-8 flex flex-col gap-8 max-[1100px]:gap-6"
     >
@@ -27,7 +27,7 @@ export function Hero() {
           <div className="space-y-3">
             <h1
               id="hero-heading"
-              className="font-display font-black text-[clamp(3.875rem,7.5vw,6.375rem)] text-[var(--dp-color-ink)] leading-[0.92] tracking-[-0.035em]"
+              className="font-display font-black text-[clamp(3.125rem,7.5vw,6.375rem)] text-[var(--dp-color-ink)] leading-[0.92] tracking-[-0.035em] break-words"
             >
               Lakshya.
             </h1>

@@ -29,7 +29,7 @@ const interests = [
 export function About() {
   return (
     <BookContainer
-      id="about-section"
+      id="about"
       tabLabel="About"
       tabColor="bg-[var(--dp-color-accent)]"
     >
