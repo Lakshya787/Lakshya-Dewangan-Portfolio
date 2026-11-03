@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dp-color-ground: #fffdf5;
+  --dp-color-panel: #ffffff;
+  --dp-color-ink: #253044;
+  --dp-color-outline: #252b3a;
+  --dp-color-accent: #6434df;
+  --dp-color-accent-secondary: #ff78c5;
+  --dp-color-accent-warm: #ffd05b;
+  --dp-color-accent-fresh: #9bf1cd;
+  --dp-color-field-soft: #e9fff5;
+  --dp-color-selection: #f1ebff;
+  --dp-color-rule-muted: #b8b6c5;
+
+  --dp-typography-display: "PlayfulGeometricDisplay", var(--font-host-grotesk), sans-serif;
+  --dp-typography-reading: "PlayfulGeometricReading", var(--font-instrument-sans), sans-serif;
+
+  --dp-radius-corner: 17px;
+  --dp-border-outline-width: 3px;
+  --dp-border-detail-width: 2px;
+  --dp-motion-interaction: 180ms;
+}
+
+@font-face {
+  font-family: "PlayfulGeometricDisplay";
+  src: local("Host Grotesk");
+}
+
+@font-face {
+  font-family: "PlayfulGeometricReading";
+  src: local("Instrument Sans");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--dp-color-selection);
+  color: var(--dp-color-ink);
+}
+
+body {
+  background-color: var(--dp-color-ground);
+  color: var(--dp-color-ink);
+  font-family: var(--dp-typography-reading);
+  line-height: 1.65;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hard offset shadows only (no blur), no glass */
+.shadow-hard {
+  box-shadow: 4px 4px 0px var(--dp-color-outline);
+}
+
+.shadow-hard-sm {
+  box-shadow: 2px 2px 0px var(--dp-color-outline);
+}
+
+.shadow-hard-md {
+  box-shadow: 4px 4px 0px var(--dp-color-outline);
+}
+
+.shadow-hard-lg {
+  box-shadow: 6px 6px 0px var(--dp-color-outline);
+}
+
+.shadow-hard-xl {
+  box-shadow: 8px 8px 0px var(--dp-color-outline);
+}
+
+/* Visible focus rings */
+:focus-visible {
+  outline: var(--dp-border-outline-width) solid var(--dp-color-outline);
+  outline-offset: 2px;
+}
+
+/* Layout container: centered, max-width 1152px */
+.layout-container {
+  width: 100%;
+  max-width: 1152px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Prefers-reduced-motion rule that removes transitions and transforms */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    transition: none !important;
+    transform: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
